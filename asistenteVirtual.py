@@ -4,11 +4,13 @@ from speech_recognition import Microphone, Recognizer, AudioFile, UnknownValueEr
 from gtts import gTTS
 from playsound import playsound
 import random
+import os
+# from msedge.selenium_tools import Edge, EdgeOptions
 
 #DECLARAR VARIABLES UNIVERSALES
 validaAuth = False
 browser = webdriver
-
+pathFiles = os.path.abspath('./resource/')
 
 def validaQR():
     try:
@@ -76,17 +78,25 @@ def callback(recognizer, source):
         reconocer = recognizer.recognize_google(source, language='es-ES')
         texto = str(reconocer).lower()
         print("Escuche : ", texto)
-        if(texto.__contains__("eva")):
-            print("Llamo a eva")
-            texto = texto.replace("eva","")
+        # accion(texto)
+        
+        # accion(texto)
+        
+        if(texto.__contains__("luna")):
+            print("Llamo a luna")
+            texto = texto.replace("luna","")
             accion(texto)
+        else:
+            accion(texto)
+            
         return
 
     except RequestError as exc:
         print("Error al escuhar : ", exc)
     except UnknownValueError:
         print("No entendi :c")
-        playsound('./resource/errorRespuesta.mp3')
+        # playsound('./resource/errorRespuesta.mp3')
+        playsound(pathFiles + '\\errorRespuesta.mp3')
         time.sleep(1)
 
 def accion(texto: str):
@@ -95,17 +105,18 @@ def accion(texto: str):
 
     if(texto.__contains__("abrir whatsapp")):
         print("Abriendo whatsapp...")
-        playsound('./resource/abrirwts.mp3')
+        playsound(pathFiles + '\\abrirwts.mp3')
+        # playsound('./resource/abrirwts.mp3')
         time.sleep(1)
         global browser
-        browser = webdriver.Edge(executable_path="./driver/edgedriver")
+        browser = webdriver.Chrome()
         bootWhatsapp()
 
     if(texto.__contains__("enviar mensaje a")):
         if(validaAuth == False):
             
             print("Autenticate por favor")
-            playsound('./resource/abrirwts.mp3')
+            playsound(pathFiles + '\\abrirwts.mp3')            
             time.sleep(1)
             return
         
@@ -141,10 +152,9 @@ def chiste():
     print("CONTANDO CHISTE : ", str(aleatorio))
 
     if(aleatorio == 1):
-      playsound('./resource/obligame.mp3')
-      #playsound('./resource/chiste1.mp3')
+      playsound(pathFiles + '\\chiste1.mp3')   
     else:
-      playsound('./resource/chiste2.mp3')
+      playsound(pathFiles + '\\chiste2.mp3')        
     
     time.sleep(1)
     return
@@ -152,12 +162,13 @@ def chiste():
 def hablar(texto: str):
     print("Hablando...")
     audio = gTTS(text=texto,lang='es-us',slow=False)
-    audio.save('./resource/obligame.mp3')
+    audio.save(pathFiles + '\\nombre_audio.mp3')
+    # audio.save('./resource/obligame.mp3')    
     #time.sleep(1)
     #playsound('./resource/chiste1.mp3')
     return
 
 
 
-activarAsistente() 
-#hablar('obligame perro')
+# hablar('Acá se guardan los audios, descomentado esto)
+activarAsistente()

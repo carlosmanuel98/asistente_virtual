@@ -7,17 +7,20 @@
 
  1. Instalar librerias, si ejecutas el siguiente comando en la consola de tu sistema operativo se descargara automaticamente:
 	>   pip install selenium
-
+      pip install --upgrade selenium - opcional?
+      pip install msedge-selenium-tools - opcional?
     >   pip install gtts
 
     >   pip install playsound
 
-    >   pip install speech_recognition
+    >   pip install SpeechRecognition
 
  1. Instalar pyAudio, si ejecutas el siguiente comando en la consola de tu sistema operativo se descargara automaticamente:
     >   pip install pipwin
 
     >   pipwin install PyAudio
+
+    pip install pyaudio - opcional?
 
  1. Descargar el webDriver que corresponda a su browser preferido
     >  Web Drivers
