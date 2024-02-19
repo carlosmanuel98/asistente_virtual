@@ -87,7 +87,7 @@ Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones
 También puedes mirar la lista de todos los [contribuyentes](https://github.com/Strange-Code/DetectorRostro/contributors) quíenes han participado en este proyecto. 
 
 
-## Expresiones de Gratitud 🎁
+<!-- ## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢
 * Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
@@ -96,4 +96,11 @@ También puedes mirar la lista de todos los [contribuyentes](https://github.com/
 
 ## [Strange Code](https://github.com/Strange-Code) 😊
 
-![](https://avatars.githubusercontent.com/u/79027421?s=200&v=4)
+![](https://avatars.githubusercontent.com/u/79027421?s=200&v=4) -->
+
+Pasos para reconstruir y levantar la app
+
+python -m venv entornorun
+path/entornorun/activate
+pip install -r requirements.txt
+python asistenteVirtual.py
